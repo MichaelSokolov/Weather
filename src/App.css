@@ -1,38 +1,146 @@
-.App {
-  text-align: center;
+.app{
+    background: #373056;
+    color: white;
+    transition: background-color 2s ease 1s, color 2s ease 1s;
+    height: 100vh;
+    display: grid;
+    place-content: center center;
+    font-size: 20px;
+}
+.app[time='0'],
+.app[time='1'],
+.app[time='2'],
+.app[time='3'] {
+    background-color: #362942;
+    border-color: white;
+    color: white;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app[time='4'],
+.app[time='5'],
+.app[time='6'],
+.app[time='7'] {
+    background-color: #82bfe5;
+    border-color: #2F2F2F;
+    color: #2F2F2F;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app[time='8'],
+.app[time='9'],
+.app[time='10'],
+.app[time='11'] {
+    background-color: #c3e9f7;
+    border-color: #2F2F2F;
+    color: #2F2F2F;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.app[time='12'],
+.app[time='13'],
+.app[time='14'],
+.app[time='15'] {
+    background-color: #efad51;
+    border-color: #2F2F2F;
+    color: #2F2F2F;
 }
 
-.App-link {
-  color: #61dafb;
+.app[time='16'],
+.app[time='17'],
+.app[time='18'],
+.app[time='19'] {
+    background-color: #a33737;
+    border-color: white;
+    color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.app[time='20'],
+.app[time='21'],
+.app[time='22'],
+.app[time='23'] {
+    background-color: #192f49;
+    border-color: white;
+    color: white;
+}
+
+.widget{
+    display: grid;
+    grid-template-areas:
+    "city"
+    "weatherDetails"
+    "humidityDetails"
+    "pressureDetails";
+    grid-template-columns: 300px;
+    width: 300px;
+}
+/* -----------------------------------------Blocks----------------------------------------- */
+.cityName{
+    font-size: 30px;
+    grid-area: city;
+    margin-bottom: 10px;
+    place-self: center center;
+}
+.weatherDetails{
+    grid-area: weatherDetails;
+    grid-template-areas: 
+    "weatherIcon temp"
+    "desc desc";
+    margin-bottom: 20px;
+}
+.humidityDetails{
+    grid-area: humidityDetails;
+    grid-template-areas: 
+    "humidityIcon humidity";
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 7px;
+}
+.pressureDetails{
+    grid-area: pressureDetails;
+    grid-template-areas: 
+    "pressureIcon pressure";
+    grid-template-columns: 1fr 1fr;
+}
+.cityName, .weatherDetails, .humidityDetails, .pressureDetails{
+    display: grid;
+}
+/* -----------------------------------------Weather Section----------------------------------------- */
+.weather-icon{
+    font-size: 60px;
+    grid-area: weatherIcon;
+    padding-left: 40%;
+    margin-bottom: 10px;
+}
+.temp{
+    font-size: 40px;
+    grid-area: temp;
+    align-self: center;
+}
+.weatherDesc{
+    grid-area: desc;
+    border-bottom: 2px solid;
+    padding: 7px 7px 7px 7px;
+    justify-self: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* -----------------------------------------Humidity Section----------------------------------------- */
+.humudityIcon{
+    font-size: 30px;
+    grid-area: humidityIcon;
+    padding-left: 60%;
+}
+.humidity{
+    grid-area: humidity;
+    font-size: 22px;
+    align-self: center;
+}
+/* -----------------------------------------Pressure Section----------------------------------------- */
+.pressureIcon{
+    font-size: 30px;
+    grid-area: pressureIcon;
+    padding-left: 60%;
+}
+.pressure{
+    grid-area: pressure;
+    font-size: 22px;
+    align-self: center;
 }
