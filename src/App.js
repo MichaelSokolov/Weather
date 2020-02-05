@@ -24,6 +24,7 @@ export class App extends Component {
     const lang = this.state.lang;
     const units = 'metric';
     const time = new Date().getHours();
+    console.log(city)
     const responce = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${keyOpenWeather}&units=${units}&lang=${lang}`)
     const data = await responce.json()
     this.setState({
@@ -42,8 +43,8 @@ export class App extends Component {
     let language;
     window.navigator.languages ? language = window.navigator.languages[0] : language = window.navigator.userLanguage || window.navigator.language;
     this.setState({lang: language.slice(0, 2)})
-    const keyIpStack = 'a3dbd17db9ce65aa30419907fa629a23';
-    const responce = await fetch(`http://api.ipstack.com/check?access_key=${keyIpStack}`)
+    const ipInfoKey = '868f4f8e319b0e';
+    const responce = await fetch(`https://ipinfo.io?token=${ipInfoKey}`)
     const data = await responce.json()
     this.getWeather(data.city)
   }
